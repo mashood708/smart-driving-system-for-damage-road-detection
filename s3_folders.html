@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 Folders</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/s3_folders.css') }}">
+</head>
+<body>
+
+    <form action="/download_folders" method="POST">
+        <h1>S3 Folders</h1>
+        <input type="text" id="searchBar" placeholder="Search folders...">
+        <ul id="folderList">
+            {% for folder in folders %}
+                <li>
+                    <input type="checkbox" name="selected_folders" value="{{ folder }}">
+                    <a href="{{ url_for('s3_list_files', folder_name=folder) }}">{{ folder }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Download Selected Folders</button>
+    </form>
+
+    <script>
+        document.getElementById('searchBar').addEventListener('keyup', function() {
+            var filter = this.value.toUpperCase();
+            var lis = document.getElementById('folderList').getElementsByTagName('li');
+
+            for (var i = 0; i < lis.length; i++) {
+                var a = lis[i].getElementsByTagName('a')[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    lis[i].style.display = '';
+                } else {
+                    lis[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

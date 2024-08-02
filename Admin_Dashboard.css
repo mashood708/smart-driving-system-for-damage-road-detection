@@ -1,0 +1,53 @@
+/* index.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #1e3d59;
+    margin-bottom: 20px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff6f61, #d8345f); /* Gradient from coral to deep pink */
+    border-radius: 24px; /* More rounded corners for a modern look */
+    transition: background 0.3s, color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a:hover {
+    background: linear-gradient(45deg, #d8345f, #ff6f61); /* Reverse gradient on hover */
+    color: #f0f4f8; /* Text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    a {
+        width: 100%; /* Full width for responsiveness */
+        box-sizing: border-box;
+    }
+}

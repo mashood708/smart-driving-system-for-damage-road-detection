@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_user.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit User</h2>
+        <form action="{{ url_for('edit_user', user_id=user.UserID) }}" method="post">
+          <!-- <label for="username">Username:</label>--> 
+            <input type="text" id="username" name="username" value="{{ user.Username }}" placeholder="Username" required>
+             <!--  <label for="password">Password:</label>--> 
+            <input type="password" id="password" name="password" value="{{ user.Password }}"  placeholder="Password"required>
+              <!-- <label for="role_name">Role:</label>--> 
+            <select id="role_name" name="role_name" required>
+                <option value="" disabled>Select role</option>
+                <option value="Admin" {% if user_role['RoleID'] == 1 %}selected{% endif %}>Admin</option>
+                <option value="User" {% if user_role['RoleID'] == 2 %}selected{% endif %}>User</option>
+            </select>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

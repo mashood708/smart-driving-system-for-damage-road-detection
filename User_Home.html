@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/User_Home.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1 align="center">Smart Driving System (Damage Road Detection)</h1>
+  
+    <div class="video-container">
+        <img id="bg" src="{{ url_for('video_feed') }}" alt="Video Feed">
+    </div>
+    <div class="button-container">
+        <button id="startBtn">Start Detection</button>
+        <button id="stopBtn">Stop Detection</button>
+        <a href="{{ url_for('s3_list_folders') }}"><button>Download Data</button></a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- view_image.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Image</title>   
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/view_image.css') }}">
+
+</head>
+<body>
+    
+    <h1>View Image File</h1> <br>
+    <h2>File: {{ presigned_url }}</h2>
+    <img src="{{ presigned_url }}" alt="Image">
+
+</body>
+</html>

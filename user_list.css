@@ -1,0 +1,139 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    color: #1e3d59; /* Dark text color for readability */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+}
+
+/* Heading Styling */
+h1, h2 {
+    color: #1e3d59; /* Dark heading color */
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #050505; /* Dark background for contrast */
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Ensures text doesn't overflow */
+}
+
+tr:hover {
+    background-color: #d0d0d0; /* Soft grey on hover */
+    color: #1e3d59; /* Dark text on hover */
+}
+
+/* Button and Link Styling */
+button, a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(45deg, #ff6f61, #d8345f); /* Gradient from coral to deep pink */
+    border-radius: 24px; /* Rounded corners for a modern look */
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+
+button:hover, a:hover {
+    background: linear-gradient(45deg, #d8345f, #ff6f61); /* Reverse gradient on hover */
+    color: #f0f4f8; /* Light text color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 800px;
+        padding: 20px;
+    }
+
+    th, td {
+        padding: 10px 12px;
+    }
+
+    button, a {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 600px;
+        padding: 15px;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    button, a {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    th, td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    th {
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    td {
+        text-align: left;
+        padding-left: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    a {
+        width: 100%; /* Full width for responsiveness */
+        box-sizing: border-box;
+    }
+}

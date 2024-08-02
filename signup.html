@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <!-- Font Awesome for the eye icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  
+    <form action="{{ url_for('signup') }}" method="POST">
+        <h1>Sign Up</h1>
+        <input type="text" name="username" placeholder="Username" required><br>
+        <div class="password-field">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
+        </div>
+        <button type="submit">Sign Up</button>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+    </form>
+    
+    <script>
+        function togglePassword() {
+            var password = document.getElementById("password");
+            var icon = document.querySelector(".toggle-password");
+            if (password.type === "password") {
+                password.type = "text";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            } else {
+                password.type = "password";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            }
+        }
+    </script>
+</body>
+</html>

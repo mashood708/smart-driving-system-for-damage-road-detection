@@ -1,0 +1,78 @@
+<!-- s3_files.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files in {{ folder_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/s3_files.css') }}">
+</head>
+
+<body>
+    <h1>Files in {{ folder_name }}</h1>
+
+    <!-- Search bar -->
+    <input type="text" id="fileSearch" onkeyup="filterFiles()" placeholder="Search for files..">
+
+    <form action="/download_files" method="POST">
+        <input type="hidden" name="folder_name" value="{{ folder_name }}">
+        <ul id="fileList">
+            {% for file in files %}
+            <li>
+                <input type="checkbox" name="selected_files" value="{{ file }}"
+                    onclick="selectCorrespondingFiles(this, '{{ file }}')">
+                {% if file.endswith('.txt') %}
+                <a href="{{ url_for('view_text', file_key=file) }}">View Text</a> |
+                <span>{{ file }}</span>
+                {% elif file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png') %}
+                <a href="{{ url_for('view_image', file_key=file) }}">View Image</a> |
+                <span>{{ file }}</span>
+                {% else %}
+                {{ file }}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Download Selected Files</button>
+    </form>
+
+    <script>
+        function filterFiles() {
+            const input = document.getElementById('fileSearch');
+            const filter = input.value.toUpperCase();
+            const ul = document.getElementById('fileList');
+            const li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                const span = li[i].getElementsByTagName('span')[0];
+                if (span.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+
+        function selectCorrespondingFiles(checkbox, file) {
+            const files = {{ files| tojson
+        }};
+        const selectedFile = file;
+        let correspondingFile;
+
+        if (selectedFile.endsWith('.jpg') || selectedFile.endsWith('.jpeg') || selectedFile.endsWith('.png')) {
+            correspondingFile = selectedFile.replace('detected_image', 'detected_labels').replace(/\.(jpg|jpeg|png)$/, '.txt');
+        } else if (selectedFile.endsWith('.txt')) {
+            correspondingFile = selectedFile.replace('detected_labels', 'detected_image').replace(/\.txt$/, '.jpg');
+        }
+
+        files.forEach(f => {
+            if (f === correspondingFile) {
+                document.querySelector(`input[value="${f}"]`).checked = checkbox.checked;
+            }
+        });
+        }
+    </script>
+</body>
+
+</html>

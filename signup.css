@@ -1,0 +1,132 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container Styling */
+form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative; /* Ensure it respects stacking order */
+    z-index: 2; /* Ensure text is above form content */
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    position: relative; /* Ensure input fields respect stacking order */
+    z-index: 2; /* Ensure input fields are above form content */
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input[type="password"] {
+    padding-right: 40px; /* Ensure space for the eye icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2; /* Ensure icon is above the input field */
+    color: #455de7; /* Default color for eye icon */
+}
+
+.toggle-password:hover {
+    color: #333; /* Darker color on hover */
+}
+
+button[type="submit"] {
+    background: linear-gradient(45deg, #5c6bc0, #42a5f5); /* Gradient from indigo to light blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    border-radius: 4px; /* Rounded corners */
+    width: 100%; /* Full width for responsiveness */
+    position: relative; /* Ensure button respects stacking order */
+    z-index: 2; /* Ensure button is above form content */
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #42a5f5, #5c6bc0); /* Reverse gradient on hover */
+    box-shadow: 0 0 20px rgba(66, 165, 245, 0.6); /* Glowing effect */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    color: #ffffff; /* White text color on hover */
+}
+
+a {
+    text-decoration: none;
+    color: #5c6bc0; /* Indigo for links */
+    transition: color 0.3s;
+    position: relative; /* Ensure links respect stacking order */
+    z-index: 2; /* Ensure links are above form content */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #42a5f5; /* Light blue on hover */
+    position: relative; /* Ensure hover effect respects stacking order */
+    z-index: 2; /* Ensure hover effect is above form content */
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    position: relative; /* Ensure paragraph respects stacking order */
+    z-index: 2; /* Ensure paragraph is above form content */
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+
+    input[type="text"], input[type="password"], button[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
